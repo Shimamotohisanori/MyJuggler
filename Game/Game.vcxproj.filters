@@ -7,6 +7,9 @@
     <Filter Include="GameScene">
       <UniqueIdentifier>{5107681c-6d49-4183-b878-7a110dcf9d2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Reel">
+      <UniqueIdentifier>{0e9de9d5-08b9-4f2c-a376-4755144bb399}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -20,6 +23,9 @@
     <ClCompile Include="GameScene\MainScene.cpp">
       <Filter>GameScene</Filter>
     </ClCompile>
+    <ClCompile Include="Reel\MainReel.cpp">
+      <Filter>Reel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -31,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="GameScene\MainScene.h">
       <Filter>GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Reel\MainReel.h">
+      <Filter>Reel</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
