@@ -14,5 +14,7 @@ public:
 private:
 	/** メイン画面の画像 */
 	SpriteRender m_mainSpriteRender;
+
+	SpriteRender m_pushSpriteRender[8];
 };
 
