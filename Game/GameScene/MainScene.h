@@ -12,6 +12,7 @@ public:
 	void Render(RenderContext& rc) override;
 
 private:
+
 	/** メイン画面の画像 */
 	SpriteRender m_mainSpriteRender;
 

@@ -6,10 +6,10 @@ namespace
 	const char* MAIN_SCENE_IMAGE_FILE_PATH = "Assets/sprites/MainScene.dds";
 
 	/** MainSceneの画像の横幅 */
-	const float MAIN_SCENE_IMAGE_WIDTH = 1720.0f;
+	constexpr float MAIN_SCENE_IMAGE_WIDTH = 1720.0f;
 
 	/** MainSceneの画像の縦幅 */
-	const float MAIN_SCENE_IMAGE_HEIGHT = 880.0f;
+	constexpr float MAIN_SCENE_IMAGE_HEIGHT = 880.0f;
 
 	/** MainSceneの画像位置 */
 	const Vector3 MAIN_SCENE_IMAGE_POSITION = Vector3(0.0f, 120.0f, 0.0f);
