@@ -7,6 +7,8 @@
     <Filter Include="GameScene">
       <UniqueIdentifier>{5107681c-6d49-4183-b878-7a110dcf9d2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SoundManager">
+      <UniqueIdentifier>{7ca71c93-d181-4829-8b86-9fad8c66df18}</UniqueIdentifier>
     <Filter Include="Reel">
       <UniqueIdentifier>{0e9de9d5-08b9-4f2c-a376-4755144bb399}</UniqueIdentifier>
     </Filter>
@@ -23,6 +25,8 @@
     <ClCompile Include="GameScene\MainScene.cpp">
       <Filter>GameScene</Filter>
     </ClCompile>
+    <ClCompile Include="SoundManager\SoundManager.cpp">
+      <Filter>SoundManager</Filter>
     <ClCompile Include="Reel\MainReel.cpp">
       <Filter>Reel</Filter>
     </ClCompile>
@@ -38,6 +42,8 @@
     <ClInclude Include="GameScene\MainScene.h">
       <Filter>GameScene</Filter>
     </ClInclude>
+    <ClInclude Include="SoundManager\SoundManager.h">
+      <Filter>SoundManager</Filter>
     <ClInclude Include="Reel\MainReel.h">
       <Filter>Reel</Filter>
     </ClInclude>
