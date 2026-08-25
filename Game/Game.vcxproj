@@ -227,6 +227,7 @@
     <ClCompile Include="GameScene\MainScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SoundManager\SoundManager.cpp" />
+    <ClCompile Include="Reel\MainReel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -238,6 +239,7 @@
     <ClInclude Include="GameScene\Game.h" />
     <ClInclude Include="GameScene\MainScene.h" />
     <ClInclude Include="SoundManager\SoundManager.h" />
+    <ClInclude Include="Reel\MainReel.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
   </ItemGroup>

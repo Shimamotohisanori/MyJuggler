@@ -9,6 +9,8 @@
     </Filter>
     <Filter Include="SoundManager">
       <UniqueIdentifier>{7ca71c93-d181-4829-8b86-9fad8c66df18}</UniqueIdentifier>
+    <Filter Include="Reel">
+      <UniqueIdentifier>{0e9de9d5-08b9-4f2c-a376-4755144bb399}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -25,6 +27,8 @@
     </ClCompile>
     <ClCompile Include="SoundManager\SoundManager.cpp">
       <Filter>SoundManager</Filter>
+    <ClCompile Include="Reel\MainReel.cpp">
+      <Filter>Reel</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +44,8 @@
     </ClInclude>
     <ClInclude Include="SoundManager\SoundManager.h">
       <Filter>SoundManager</Filter>
+    <ClInclude Include="Reel\MainReel.h">
+      <Filter>Reel</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

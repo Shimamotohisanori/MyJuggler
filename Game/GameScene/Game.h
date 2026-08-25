@@ -2,6 +2,7 @@
 
 #include "Level3DRender/LevelRender.h"
 class MainScene;
+class MainReel;
 class Game : public IGameObject
 {
 public:
@@ -20,6 +21,9 @@ public:
 private:
 	/** メインシーン */
 	MainScene* m_mainScene = nullptr;
+
+	/** メインリール */
+	MainReel* m_mainReel = nullptr;
 
 	/** 自分自身への静的ポインタ */
 	static Game* m_instance;
