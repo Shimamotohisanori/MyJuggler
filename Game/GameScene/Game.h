@@ -3,6 +3,7 @@
 #include "Level3DRender/LevelRender.h"
 class MainScene;
 class MainReel;
+class NumberUI;
 class Game : public IGameObject
 {
 public:
@@ -24,7 +25,10 @@ private:
 
 	/** メインリール */
 	MainReel* m_mainReel = nullptr;
-
+	
+	/** 数字UI */
+	NumberUI* m_numberUI = nullptr;
+	
 	/** 自分自身への静的ポインタ */
 	static Game* m_instance;
 };
