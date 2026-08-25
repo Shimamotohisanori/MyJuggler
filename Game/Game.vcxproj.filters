@@ -7,6 +7,9 @@
     <Filter Include="GameScene">
       <UniqueIdentifier>{5107681c-6d49-4183-b878-7a110dcf9d2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SoundManager">
+      <UniqueIdentifier>{7ca71c93-d181-4829-8b86-9fad8c66df18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -20,6 +23,9 @@
     <ClCompile Include="GameScene\MainScene.cpp">
       <Filter>GameScene</Filter>
     </ClCompile>
+    <ClCompile Include="SoundManager\SoundManager.cpp">
+      <Filter>SoundManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -31,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="GameScene\MainScene.h">
       <Filter>GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager\SoundManager.h">
+      <Filter>SoundManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
