@@ -19,6 +19,12 @@
     <ClCompile Include="NumberUI\NumberUI.cpp">
       <Filter>NumberUI</Filter>
     </ClCompile>
+    <ClCompile Include="RoleProbabilityDefine\RoleProbabilityDefine.cpp">
+      <Filter>RoleProbabilityDefine</Filter>
+    </ClCompile>
+    <ClCompile Include="RoleLottery\RoleLottery.cpp">
+      <Filter>RoleLottery</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -38,6 +44,12 @@
     <ClInclude Include="NumberUI\NumberUI.h">
       <Filter>NumberUI</Filter>
     </ClInclude>
+    <ClInclude Include="RoleProbabilityDefine\RoleProbabilityDefine.h">
+      <Filter>RoleProbabilityDefine</Filter>
+    </ClInclude>
+    <ClInclude Include="RoleLottery\RoleLottery.h">
+      <Filter>RoleLottery</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameScene">
@@ -51,6 +63,12 @@
     </Filter>
     <Filter Include="NumberUI">
       <UniqueIdentifier>{6b3db207-d76e-44b3-8d07-887f8fb7d244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RoleProbabilityDefine">
+      <UniqueIdentifier>{250069bd-01a9-42c0-9319-000d73e34ada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RoleLottery">
+      <UniqueIdentifier>{362878d4-0d72-4b4d-9e30-cbfffbdd0c9d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
