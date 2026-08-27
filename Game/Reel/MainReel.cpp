@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "MainReel.h"
+#include "NumberUI/NumberUI.h"
+#include "SoundManager/SoundManager.h"
 
 namespace
 {
@@ -49,6 +51,8 @@ namespace
 
 bool MainReel::Start()
 {
+	m_soundManager = FindGO<SoundManager>("soundManager");
+
 	/** 各リールに同じ画像を二枚並べて初期化する */
 	for (int i = 0; i < m_reelNum; i++)
 	{
@@ -74,6 +78,11 @@ bool MainReel::Start()
 
 void MainReel::Update()
 {
+	if (m_numberUI == nullptr)
+	{
+		m_numberUI = FindGO<NumberUI>("numberUI");
+	}
+
 	// ボタン入力の判定
 	UpdateInput();
 
@@ -116,6 +125,8 @@ void MainReel::UpdateInput()
 		m_isLeftStop   = false;
 		m_isCenterStop = false;
 		m_isRightStop  = false;
+
+		m_leverOnSound = m_soundManager->PlayingOperationSound(enOperationSound_LeverOn, false);
 		StartSpin();
 	}
 
@@ -123,6 +134,7 @@ void MainReel::UpdateInput()
 	if (pad->IsTrigger(nsK2EngineLow::enButtonA))
 	{
 		m_isLeftStop = true;
+		m_buttonStopSound = m_soundManager->PlayingOperationSound(enOperationSound_ButtonStop, false);
 		StopReel(0);
 	}
 
@@ -130,6 +142,7 @@ void MainReel::UpdateInput()
 	if (pad->IsTrigger(nsK2EngineLow::enButtonB))
 	{
 		m_isCenterStop = true;
+		m_buttonStopSound = m_soundManager->PlayingOperationSound(enOperationSound_ButtonStop, false);
 		StopReel(1);
 	}
 
@@ -137,6 +150,7 @@ void MainReel::UpdateInput()
 	if (pad->IsTrigger(nsK2EngineLow::enButtonX))
 	{
 		m_isRightStop = true;
+		m_buttonStopSound = m_soundManager->PlayingOperationSound(enOperationSound_ButtonStop, false);
 		StopReel(2);
 	}
 
@@ -146,7 +160,11 @@ void MainReel::UpdateInput()
 		// 全リールが停止している時だけBETできるようにする(回転中のBET変更を防ぐ)
 		if (IsAllStopped())
 		{
-			
+			/** MAXBET時は3枚使う */
+			m_numberUI->AddCredit(-3);
+
+			/** MAXBET時の音を再生 */
+			m_maxBetSound = m_soundManager->PlayingOperationSound(enOperationSound_MaxBet, false);
 		}
 	}
 }

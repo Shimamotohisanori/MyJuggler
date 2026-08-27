@@ -5,7 +5,7 @@
 #include <iostream>
 
 namespace {
-	const char* SOUND_FILEPATH = "Assets/sound/";
+	const char* SOUND_FILEPATH = "Assets/sounds/";
 	const char* SOUND_EXTENSION = ".wav";
 
 	/** 操作サウンドのファイル名リスト */
@@ -23,7 +23,7 @@ namespace {
 		"Budou",
 		"Budou_2Bet",
 		"Cherry",
-		"Replay"
+		"RePlay"
 	};
 
 	/** ボーナスサウンドのファイル名リスト */

@@ -23,7 +23,7 @@ namespace
 
 	const char* GOGO_SPRITE_FILE_PATH = "Assets/sprites/Pekari/GOGO.dds";
 	const char* GREEN_GOGO_SPRITE_FILE_PATH = "Assets/sprites/Pekari/GOGO_Green.dds";
-	const char* RAINBOW_GOGO_SPRITE_FILE_PATH = "Assets/sprites/Pekari/GOGO_Rainbow.dds";
+	const char* RAINBOW_GOGO_SPRITE_FILE_PATH = "Assets/sprites/Pekari/GOGO_RainBow.dds";
 
 	const Vector3 GOGO_SPRITE_POS = Vector3(-640.0f, -210.0f, 0.0f);
 	constexpr float GOGO_SPRITE_WIDTH = 220.0f;
@@ -54,7 +54,6 @@ bool MainScene::Start()
 	m_mainSpriteRender.Init(MAIN_SCENE_IMAGE_FILE_PATH, MAIN_SCENE_IMAGE_WIDTH, MAIN_SCENE_IMAGE_HEIGHT);
 	m_mainSpriteRender.SetPosition(MAIN_SCENE_IMAGE_POSITION);
 
-	
 
 	m_gogoSpriteRender.Init(GOGO_SPRITE_FILE_PATH, GOGO_SPRITE_WIDTH, GOGO_SPRITE_HEIGHT);
 	m_gogoSpriteRender.SetPosition(GOGO_SPRITE_POS);
@@ -71,7 +70,6 @@ bool MainScene::Start()
 void MainScene::Update()
 {
 	m_mainSpriteRender.Update();
-	m_pushSpriteRender[0].Update();
 	m_gogoSpriteRender.Update();
 	m_greenGogoSpriteRender.Update();
 	m_rainbowGogoSpriteRender.Update();
@@ -80,8 +78,6 @@ void MainScene::Update()
 void MainScene::Render(RenderContext& rc)
 {
 	m_mainSpriteRender.Draw(rc);
-
-	m_pushSpriteRender[0].Draw(rc);
 
 	if (m_currentRole == enRole_BIG)
 	{
