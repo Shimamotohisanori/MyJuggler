@@ -3,20 +3,18 @@
 #include "MainScene.h"
 #include "Reel/MainReel.h"
 #include "NumberUI/NumberUI.h"
-
-/** 静的メンバの実体を定義 */
-Game* Game::m_instance = nullptr;
+#include "BonusManager/BonusManager.h"
 
 bool Game::Start()
-{
-	m_instance = this;
-
+{	
+	
 	m_mainReel = NewGO<MainReel>(0, "mainreel");
-	m_mainScene = NewGO<MainScene>(0,"mainscene");
+	m_mainScene = NewGO<MainScene>(0, "mainscene");
 	m_numberUI = NewGO<NumberUI>(0, "numberUI");
 	m_numberUI->SetCredit(46);
 	m_numberUI->SetCount(0);
 	m_numberUI->SetPayout(0);
+	m_bonusManager = NewGO<BonusManager>(0,"bonusmanager");
 	return true;
 }
 

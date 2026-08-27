@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "RoleLottery.h"
+#include "BonusManager/BonusManager.h"
 #include <random>
 
 namespace
@@ -10,6 +11,13 @@ namespace
 
 Role RoleLottery::Draw()
 {
+	/** ボーナス中は通常抽選を行わずに必ずブドウを返す
+	 * 重複抽選もしないので、ボーナスの上乗せもない */
+	if (BonusManager::IsInBonus())
+	{
+		return enRole_Budou;
+	}
+
 	/** ==== 1段階目：メイン抽選 ==== */
 	int random = GetRandomValue(LOTTERY_TOTAL);
 

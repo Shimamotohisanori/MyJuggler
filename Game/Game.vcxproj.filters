@@ -25,6 +25,9 @@
     <ClCompile Include="RoleLottery\RoleLottery.cpp">
       <Filter>RoleLottery</Filter>
     </ClCompile>
+    <ClCompile Include="BonusManager\BonusManager.cpp">
+      <Filter>BonusManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -50,6 +53,9 @@
     <ClInclude Include="RoleLottery\RoleLottery.h">
       <Filter>RoleLottery</Filter>
     </ClInclude>
+    <ClInclude Include="BonusManager\BonusManager.h">
+      <Filter>BonusManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameScene">
@@ -69,6 +75,9 @@
     </Filter>
     <Filter Include="RoleLottery">
       <UniqueIdentifier>{362878d4-0d72-4b4d-9e30-cbfffbdd0c9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BonusManager">
+      <UniqueIdentifier>{c72ef2a6-c5bb-40b1-a2f9-48ec2ca9dd0d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
