@@ -3,7 +3,6 @@
 #include "MainScene.h"
 #include "Reel/MainReel.h"
 #include "NumberUI/NumberUI.h"
-#include "BonusManager/BonusManager.h"
 
 bool Game::Start()
 {	
@@ -14,7 +13,6 @@ bool Game::Start()
 	m_numberUI->SetCredit(46);
 	m_numberUI->SetCount(0);
 	m_numberUI->SetPayout(0);
-	m_bonusManager = NewGO<BonusManager>(0,"bonusmanager");
 	return true;
 }
 

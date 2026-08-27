@@ -4,7 +4,6 @@
 class MainScene;
 class MainReel;
 class NumberUI;
-class BonusManager;
 class Game : public IGameObject
 {
 public:
@@ -24,7 +23,5 @@ private:
 	/** 数字UI */
 	NumberUI* m_numberUI = nullptr;
 
-	/** ボーナスマネージャー */
-	BonusManager* m_bonusManager = nullptr;
 };
 
