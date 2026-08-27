@@ -54,8 +54,7 @@ bool MainScene::Start()
 	m_mainSpriteRender.Init(MAIN_SCENE_IMAGE_FILE_PATH, MAIN_SCENE_IMAGE_WIDTH, MAIN_SCENE_IMAGE_HEIGHT);
 	m_mainSpriteRender.SetPosition(MAIN_SCENE_IMAGE_POSITION);
 
-	m_pushSpriteRender[0].Init(PUSU_SPRITE_FILE_PATH[0], PUSH_SPRITE_WIDTH, PUSH_SPRITE_HEIGHT);
-	m_pushSpriteRender[0].SetPosition(PUSH_SPRITE_POS);
+	
 
 	m_gogoSpriteRender.Init(GOGO_SPRITE_FILE_PATH, GOGO_SPRITE_WIDTH, GOGO_SPRITE_HEIGHT);
 	m_gogoSpriteRender.SetPosition(GOGO_SPRITE_POS);
@@ -81,6 +80,7 @@ void MainScene::Update()
 void MainScene::Render(RenderContext& rc)
 {
 	m_mainSpriteRender.Draw(rc);
+
 	m_pushSpriteRender[0].Draw(rc);
 
 	if (m_currentRole == enRole_BIG)
