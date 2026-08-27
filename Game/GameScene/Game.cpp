@@ -25,12 +25,6 @@ void Game::Update()
 	{
 		m_numberUI->AddCredit(1);
 	}
-
-	if (g_pad[0]->IsTrigger(enButtonDown))
-	{
-		m_numberUI->AddCredit(-3);
-	}
-
 	/////////////////////////////////////////
 }
 

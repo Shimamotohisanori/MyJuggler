@@ -1,4 +1,6 @@
 #pragma once
+class NumberUI;
+class SoundManager;
 class MainReel : public IGameObject
 {
 public:
@@ -65,6 +67,21 @@ private:
 
 	/** 各リールが回転中かどうか */
 	ReelState m_reelState[3] = { ReelState::Stop, ReelState::Stop, ReelState::Stop };
+
+	/** 数字を表示するUI */
+	NumberUI* m_numberUI = nullptr;
+
+	/** レバーOn音 */
+	SoundSource* m_leverOnSound = nullptr;
+
+	/** MaxBet音 */
+	SoundSource* m_maxBetSound = nullptr;
+
+	/** ボタン停止音 */
+	SoundSource* m_buttonStopSound = nullptr;
+
+	/** サウンドマネージャー */
+	SoundManager* m_soundManager = nullptr;
 
 };
 

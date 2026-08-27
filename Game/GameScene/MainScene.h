@@ -34,9 +34,6 @@ private:
 	/** メイン画面の画像 */
 	SpriteRender m_mainSpriteRender;
 
-	/** プッシュボタンの画像 */
-	SpriteRender m_pushSpriteRender[8];
-
 	/** GOGOランプ（通常色）の画像 */
 	SpriteRender m_gogoSpriteRender;
 
