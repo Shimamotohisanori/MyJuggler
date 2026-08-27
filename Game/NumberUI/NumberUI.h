@@ -47,20 +47,22 @@ public:
 	int GetPayout() const { return m_payoutTarget; }
 
 	///<summary>
-	///クレジット数を相対的に増減させます（内部で保持している現在値に加算されます）。
-	///</summary>
-	/// <param name="delta">増減量。マイナスを渡せば減算になります。</param>
-	void AddCredit(int delta) { SetCredit(m_creditTarget + delta); }
-
-	///<summary>
 	///カウント数を相対的に増減させます。
 	///</summary>
 	void AddCount(int delta) { SetCount(m_countTarget + delta); }
 
 	///<summary>
-	///払い出し枚数を相対的に増減させます。
-	///</summary>
-	void AddPayout(int delta) { SetPayout(m_payoutTarget + delta); }
+    ///役が成立してメダルを獲得した際の処理です。
+    ///獲得枚数をそのままPayOutに表示しつつ、クレジットにも加算します（上限50でクランプ）。
+    ///</summary>
+    /// <param name="amount">獲得したメダル枚数（例：ブドウなら8）。</param>
+	void OnMedalWon(int amount);
+
+	///<summary>
+    ///クレジットを相対的に増減させます（ベット時の減算などに使用）。
+    ///</summary>
+    /// <param name="delta">増減量。マイナスを渡せば減算になります。</param>
+	void AddCredit(int delta) { SetCredit(m_creditTarget + delta); }
 
 private:
 	int ClampValue(int value, int min, int max);

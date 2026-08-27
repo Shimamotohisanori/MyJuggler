@@ -223,6 +223,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BonusManager\BonusManager.cpp" />
     <ClCompile Include="GameScene\Game.cpp" />
     <ClCompile Include="GameScene\MainScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -239,6 +240,7 @@
     <ClCompile Include="system\system.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BonusManager\BonusManager.h" />
     <ClInclude Include="GameScene\Game.h" />
     <ClInclude Include="GameScene\MainScene.h" />
     <ClInclude Include="NumberUI\NumberUI.h" />

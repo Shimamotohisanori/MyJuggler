@@ -103,6 +103,16 @@ void NumberUI::SetPayout(int payout)
 	m_payoutTarget = ClampValue(payout, 0, PAYOUT_MAX);
 }
 
+void NumberUI::OnMedalWon(int amount)
+{
+	/** 獲得枚数をそのままPayOutとして表示する */
+	SetPayout(amount);
+
+	/** クレジットにも加算する。 */
+	AddCredit(amount);
+
+}
+
 int NumberUI::ClampValue(int value, int min, int max)
 {
 	if (value < min) return min;

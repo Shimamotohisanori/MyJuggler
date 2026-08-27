@@ -4,6 +4,7 @@
 class MainScene;
 class MainReel;
 class NumberUI;
+class BonusManager;
 class Game : public IGameObject
 {
 public:
@@ -12,12 +13,6 @@ public:
 	bool Start();
 	void Update();
 	void Render(RenderContext& rc);
-
-	/** 静的アクセス用 */
-	static Game* GetInstance() { return m_instance; }
-
-	/** 他クラスからMainSceneを取得するためのgetter */
-	MainScene* GetMainScene() const { return m_mainScene; }
 
 private:
 	/** メインシーン */
@@ -28,8 +23,8 @@ private:
 	
 	/** 数字UI */
 	NumberUI* m_numberUI = nullptr;
-	
-	/** 自分自身への静的ポインタ */
-	static Game* m_instance;
+
+	/** ボーナスマネージャー */
+	BonusManager* m_bonusManager = nullptr;
 };
 
