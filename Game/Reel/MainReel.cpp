@@ -11,19 +11,40 @@ namespace
 		"Assets/sprites/Spritereel/Mr.RightReel.dds",
 	};
 
+	const char* PUSU_SPRITE_FILE_PATH[8] =
+	{
+		"Assets/sprites/Lever/Allpush.dds",
+		"Assets/sprites/Lever/Centernotpush.dds",
+		"Assets/sprites/Lever/Centerpush.dds",
+		"Assets/sprites/Lever/Leftnotpush.dds",
+		"Assets/sprites/Lever/Leftpush.dds",
+		"Assets/sprites/Lever/Notpush.dds",
+		"Assets/sprites/Lever/Rightnotpush.dds",
+		"Assets/sprites/Lever/Rightpush.dds",
+	};
+
 	/** それぞれ三つのリールのX座標 */
 	constexpr float REEL_POS_X[3] = { -380.0f,0.0f,380.0f };
 	constexpr float REEL_POS_Z = 0.0f;
 
+	/** ボタンを押す画像の大きさ */
+	constexpr float PUSH_SPRITE_HEIGHT = 230.0f;
+	constexpr float PUSH_SPRITE_WIDTH = 1720.0f;
 
 	/** リールの大きさ */
 	constexpr float REEL_WIDTH = 370.0f;
 	constexpr float REEL_HEIGHT = 3000.0f;
 
+	/** リールが動く速度 */
 	static constexpr float REEL_SPEED = 55.0f;
 
 	/** MAXBET設定するBET数 */
 	static constexpr int MAX_BET = 3;
+
+	constexpr uint8_t PUSH_NUM = 8;
+
+	/** ボタンを押す画像の座標 */
+	const Vector3 PUSH_SPRITE_POS = Vector3(0.0f, -430.0f, 0.0f);
 }
 
 bool MainReel::Start()
@@ -42,6 +63,12 @@ bool MainReel::Start()
 
 	}
 
+	for (int i = 0; i < PUSH_NUM; i++)
+	{
+		m_pushSpriteRender[i].Init(PUSU_SPRITE_FILE_PATH[i], PUSH_SPRITE_WIDTH, PUSH_SPRITE_HEIGHT);
+		m_pushSpriteRender[i].SetPosition(PUSH_SPRITE_POS);
+	}
+
 	return true;
 }
 
@@ -49,6 +76,11 @@ void MainReel::Update()
 {
 	// ボタン入力の判定
 	UpdateInput();
+
+	for (int i = 0; i < PUSH_NUM; i++)
+	{
+		m_pushSpriteRender[i].Update();
+	}
 
 	for (int i = 0; i < m_reelNum; i++)
 	{
@@ -81,24 +113,30 @@ void MainReel::UpdateInput()
 	/** 回転開始(全リール停止中のみ) */
 	if (pad->IsTrigger(nsK2EngineLow::enButtonSelect))
 	{
+		m_isLeftStop   = false;
+		m_isCenterStop = false;
+		m_isRightStop  = false;
 		StartSpin();
 	}
 
 	/** 左リールを止める */
 	if (pad->IsTrigger(nsK2EngineLow::enButtonA))
 	{
+		m_isLeftStop = true;
 		StopReel(0);
 	}
 
 	/** 中リールで止める */
 	if (pad->IsTrigger(nsK2EngineLow::enButtonB))
 	{
+		m_isCenterStop = true;
 		StopReel(1);
 	}
 
 	// Bボタン: 右リールを止める
 	if (pad->IsTrigger(nsK2EngineLow::enButtonX))
 	{
+		m_isRightStop = true;
 		StopReel(2);
 	}
 
@@ -122,6 +160,7 @@ void MainReel::StartSpin()
 	{
 		m_reelState[i] = ReelState::Spinning;
 	}
+
 }
 
 void MainReel::StopReel(int index)
@@ -137,6 +176,7 @@ void MainReel::StopReel(int index)
 
 bool MainReel::IsAllStopped() const
 {
+
 	for (int i = 0; i < m_reelNum; i++)
 	{
 		if (m_reelState[i] == ReelState::Spinning) return false;
@@ -144,12 +184,56 @@ bool MainReel::IsAllStopped() const
 	return true;
 }
 
+int MainReel::GetPushSpriteIndex() const
+{
+	/*
+	 * ボタンを押された数
+	 * bool型から押された数を数えている
+	 */
+	uint8_t stoppedCount = static_cast<uint8_t>(m_isLeftStop) + static_cast<uint8_t>(m_isCenterStop) + static_cast<uint8_t>(m_isRightStop);
+
+	/** 何も押されていない状態 */
+	if (stoppedCount == 0)
+	{
+		return 5;
+	}
+
+	/** 全て押されている状態 */
+	if (stoppedCount == 3)
+	{
+		return 0;
+	}
+
+	/** 三つのボタンのうち一つのボタンを押した場合 */
+	if (stoppedCount == 1)
+	{
+		/** 左のボタンを押した */
+		if (m_isLeftStop) return 4;
+
+		/** 中のボタンを押した */
+		if (m_isCenterStop) return 2;
+		
+		/** 右のボタンを押した */
+		return 7;
+	}
+
+	if (stoppedCount == 2)
+	{
+		if (!m_isLeftStop) return 3;
+		if (!m_isCenterStop) return 1;
+		return 6;
+	}
+
+}
+
 void MainReel::Render(RenderContext& rc)
 {
 	for (int i = 0; i < m_reelNum; i++)
 	{
-		
 		m_mainReel[i][0].Draw(rc);
 		m_mainReel[i][1].Draw(rc);
 	}
+
+	/** int型の関数で返された値を描画する */
+	m_pushSpriteRender[GetPushSpriteIndex()].Draw(rc);
 }

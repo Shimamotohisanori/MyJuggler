@@ -27,9 +27,23 @@ private:
 
 	/** 全リールが停止しているか */
 	bool IsAllStopped() const;
+
+	/** 現在の状態から表示すべきボタンの画像のインデックスを求める */
+	int GetPushSpriteIndex() const;
 private:
 	/** リール配列の数 */
 	uint8_t m_reelNum = 3;
+
+	uint8_t m_ButtonPushNum = 0;
+
+	/** 左のリールが停止しているかどうか */
+	bool m_isLeftStop = false;
+
+	/** 中リールが停止しているかどうか */
+	bool m_isCenterStop = false;
+
+	/** 右リールが停止しているかどうか */
+	bool m_isRightStop = false;
 
 private:
 	/**
@@ -42,6 +56,9 @@ private:
 	 * という玉突き状態を作り、リールが途切れず流れ続けているように見せる。
 	 */
 	SpriteRender m_mainReel[3][2];
+
+	/** ボタンを押す画像 */
+	SpriteRender m_pushSpriteRender[8];
 
 	/** 各リールのY座標のオフセット(スクロール量) */
 	float m_scrollY[3] = { 0.0f, 0.0f, 0.0f };
